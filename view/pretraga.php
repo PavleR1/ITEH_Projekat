@@ -50,16 +50,6 @@
 
 
 		</div>
-		<div id="footer">
-			<p id="tim">
-			Sara,Tamara i Pavle</p>
-			<p id="datum">
-				<script>
-					var datum = new Date();
-					document.write(datum.getFullYear()+".");
-				</script>
-			</p>
-		</div>
 
 	</div>
 </body>
