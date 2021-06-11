@@ -19,9 +19,7 @@
 	
 <body>
 	<div id="wrap">
-		<div id="header">
-			<img class="hederi" src="img/header1.jpg">
-		</div>
+		
 		<div id="meni">	
 			<ul> 
 				<li><a href="home.php">Početna</a></li> 
@@ -48,17 +46,7 @@
 			<p id="pravilo" align="justify"><b>Pravilo koriscenja sajta:</b>
 				<a href="pdfpravilnik.php" target="blank"><br>PRAVILNIK(PDF)
 				</a></p></div>
-		<div id="footer">
-			<p id="tim">
-			Sara,Tamara i Pavle</p>
-			<p id="datum">
-				<script>
-					var datum = new Date();
-					document.write(datum.getFullYear()+".");
-				</script>
-			</p>
-			
-		</div>
+		
 
 	</div>
 </body>
