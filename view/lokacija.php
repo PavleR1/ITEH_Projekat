@@ -41,10 +41,7 @@
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 <body>
-  <div id="wrap">
-    <div id="header">
-      <img class="hederi" src="../img/header1.jpg">
-    </div>
+  
     <div id="meni"> 
       <ul> 
         <li><a href="../home.php">Početna</a></li> 
