@@ -32,6 +32,7 @@ $sql_details = array(
 
 require( '../class.php' );
  
+//output data in JSON format
 echo json_encode(
     SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns,$sjoin )
 );

@@ -138,24 +138,12 @@
 						    <div id="get_proizvod">
 						    	<!-- ajax -->
 						    </div>
-						    <!-- Zbog Ajax-a -->
-						    <!--*** Panel POJEDINACNI(mali)   -->
-							<!-- <div class="col-md-4">
-								<div class="panel panel-info">
-									<div class="panel-heading">Samsung Galaxy</div>
-									<div class="panel-body">
-										<img src="productImages/images Samsungs7.png"/ style="width: 200px;">
-									</div>
-									<div class="panel-heading">$.500.00<button class="btn btn-danger btn-xs" style="float:right;">AddToCart</button>
-									</div>
-
-								</div>
-							</div> -->
+						    
 						</div>
 						<div class="panel-footer">
 							<p align="center" style="color: white;">
 								<strong><span class="glyphicon glyphicon-copyright-mark"></span>   
-                            		Stefan Despotovic,Aleksandar Devic <?php echo date('Y'); ?>		
+                            		Sara,Tamara,Pavle <?php echo date('Y'); ?>		
                             	</strong>
 							</p>
 
@@ -169,11 +157,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<center>
-						<ul class="pagination" id="obelezavanje_strana"> <!-- mocna klasa za obelezavanje strana -->
+						<ul class="pagination" id="obelezavanje_strana"> 
 							
-							<!-- <li><a href="#">1</a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#">1</a></li> -->							
+												
 
 						</ul>
 					</center>
