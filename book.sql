@@ -1,23 +1,24 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2016 at 03:44 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Generation Time: Jun 12, 2021 at 12:27 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `music`
+-- Database: `book`
 --
 
 -- --------------------------------------------------------
@@ -26,13 +27,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `autori`
 --
 
-CREATE TABLE IF NOT EXISTS `autori` (
-  `idAutor` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `autori` (
+  `idAutor` int(11) NOT NULL,
   `ImeA` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `PrezimeA` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `brojNapisanihKnjiga` int(11) NOT NULL,
-  PRIMARY KEY (`idAutor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=9 ;
+  `brojNapisanihKnjiga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `autori`
@@ -50,50 +50,52 @@ INSERT INTO `autori` (`idAutor`, `ImeA`, `PrezimeA`, `brojNapisanihKnjiga`) VALU
 (9, 'Paulo', 'Koeljo', 9),
 (10, 'Milorad', 'Pavic', 7);
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `izdavaci`
+--
+
+CREATE TABLE `izdavaci` (
+  `idIzdavac` int(11) NOT NULL,
+  `ImeI` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PrezimeI` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Ocena` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `izdavaci`
+--
+
+INSERT INTO `izdavaci` (`idIzdavac`, `ImeI`, `PrezimeI`, `Ocena`) VALUES
+(1, 'Dereta', 'stampa', 10),
+(2, 'Heliks', 'Book', 9),
+(3, 'Sezam', 'Book', 8),
+(4, 'Miba', 'Book', 8),
+(5, 'Meta', 'physica', 8),
+(6, 'Book', 'print', 10),
+(7, 'Laguna', 'izdavastvo', 10),
+(8, 'Delfi', 'stampa', 10),
+(9, 'Kairos', 'Book', 10),
+(10, 'Mascom', 'print', 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentari`
+-- Table structure for table `knjige`
 --
 
-CREATE TABLE IF NOT EXISTS `komentari` (
-  `idKomentara` int(11) NOT NULL AUTO_INCREMENT,
-  `Ime` varchar(256) CHARACTER SET latin1 NOT NULL,
-  `Prezime` varchar(256) CHARACTER SET latin1 NOT NULL,
-  `Email` varchar(256) CHARACTER SET latin1 NOT NULL,
-  `Komentar` varchar(256) CHARACTER SET latin1 NOT NULL,
-  PRIMARY KEY (`idKomentara`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `komentari`
---
-
-INSERT INTO `komentari` (`idKomentara`, `Ime`, `Prezime`, `Email`, `Komentar`) VALUES
-(5, 'Stefan', 'Despotovic', 'stefan_nbg_despot@yahoo.com', 'Sajt je odlican. Zasluzuje max poena!!! :)\r\n				');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pesme`
---
-
-CREATE TABLE IF NOT EXISTS `knjige` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `knjige` (
+  `id` int(11) NOT NULL,
   `naziv` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
   `godina` int(11) NOT NULL,
   `autor` int(11) NOT NULL,
   `izdavac` int(11) NOT NULL,
-  `ocena` double NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `autor` (`autor`),
-  KEY `izdavac` (`izdavac`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=53 ;
+  `ocena` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pesme`
+-- Dumping data for table `knjige`
 --
 
 INSERT INTO `knjige` (`id`, `naziv`, `godina`, `autor`, `izdavac`, `ocena`) VALUES
@@ -153,44 +155,97 @@ INSERT INTO `knjige` (`id`, `naziv`, `godina`, `autor`, `izdavac`, `ocena`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pevaci`
+-- Table structure for table `komentari`
 --
 
-CREATE TABLE IF NOT EXISTS `izdavaci` (
-  `idIzdavac` int(11) NOT NULL AUTO_INCREMENT,
-  `ImeI` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `PrezimeI` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Ocena` double NOT NULL,
-  PRIMARY KEY (`idIzdavac`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=12 ;
+CREATE TABLE `komentari` (
+  `idKomentara` int(11) NOT NULL,
+  `Ime` varchar(256) CHARACTER SET latin1 NOT NULL,
+  `Prezime` varchar(256) CHARACTER SET latin1 NOT NULL,
+  `Email` varchar(256) CHARACTER SET latin1 NOT NULL,
+  `Komentar` varchar(256) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pevaci`
+-- Dumping data for table `komentari`
 --
 
-INSERT INTO `izdavaci` (`idIzdavac`, `ImeI`, `PrezimeI`, `Ocena`) VALUES
-(1, 'Dereta', 'stampa', 10),
-(2, 'Heliks', 'Book', 9),
-(3, 'Sezam', 'Book', 8),
-(4, 'Miba', 'Book', 8),
-(5, 'Meta', 'physica', 8),
-(6, 'Book', 'print', 10),
-(7, 'Laguna', 'izdavastvo', 10),
-(8, 'Delfi', 'stampa', 10),
-(9, 'Kairos', 'Book', 10),
-(10, 'Mascom', 'print', 10);
+INSERT INTO `komentari` (`idKomentara`, `Ime`, `Prezime`, `Email`, `Komentar`) VALUES
+(11, 'Pavle', 'Rakovic', 'pavlerakovic@gmail.com', 'Najbolji sajt !!!			'),
+(12, 'pavle', 'rakovic', 'ffaassdd', '			asdfge	'),
+(13, 'fff', 'ffff', 'ffffffffffff', 'rfuykujhg			'),
+(14, 'das', 'aerg', 'sssfe', '	saegf			'),
+(15, 'das', 'aerg', 'sssfe', '	saegf			');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `autori`
+--
+ALTER TABLE `autori`
+  ADD PRIMARY KEY (`idAutor`);
+
+--
+-- Indexes for table `izdavaci`
+--
+ALTER TABLE `izdavaci`
+  ADD PRIMARY KEY (`idIzdavac`);
+
+--
+-- Indexes for table `knjige`
+--
+ALTER TABLE `knjige`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `autor` (`autor`),
+  ADD KEY `izdavac` (`izdavac`);
+
+--
+-- Indexes for table `komentari`
+--
+ALTER TABLE `komentari`
+  ADD PRIMARY KEY (`idKomentara`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `autori`
+--
+ALTER TABLE `autori`
+  MODIFY `idAutor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `izdavaci`
+--
+ALTER TABLE `izdavaci`
+  MODIFY `idIzdavac` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `knjige`
+--
+ALTER TABLE `knjige`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT for table `komentari`
+--
+ALTER TABLE `komentari`
+  MODIFY `idKomentara` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `pesme`
+-- Constraints for table `knjige`
 --
 ALTER TABLE `knjige`
   ADD CONSTRAINT `FK_Autor` FOREIGN KEY (`autor`) REFERENCES `autori` (`idAutor`),
   ADD CONSTRAINT `FK_Izdavac` FOREIGN KEY (`izdavac`) REFERENCES `izdavaci` (`idIzdavac`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

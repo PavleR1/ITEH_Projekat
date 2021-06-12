@@ -9,7 +9,12 @@
   <style type="text/css">
     #map-canvas{position: absolute;
                 top: 10px;
-                left: 25px;
+                left: 250px;
+                height: 250px;
+                width: 800px;}
+    #podaci{position: absolute;
+                top: 10px;
+                left: 250px;
                 height: 250px;
                 width: 800px;}
   </style>
@@ -57,10 +62,10 @@
       </ul>
     </div>
     <div id="content">
-       <div id="map-canvas"/>
+       <div id="map-canvas" >
     </div>
-    <div id="podaci">
-        <p id="adresa"align="justify"><b>Ulica:Jove Ilica 150</b>
+    <div id="podaci" >
+        <p id="adresa"align="center"><b>Ulica:Jove Ilica 150</b>
         <p id="telefon"><b>Telefon:000/111-222</b>
         
        

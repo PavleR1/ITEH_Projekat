@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2017 at 11:01 PM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: Jun 12, 2021 at 12:27 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -150,7 +151,10 @@ INSERT INTO `korpa` (`id_`, `knjiga_id`, `ip_add`, `user_id`, `knjiga_naziv`, `k
 (65, 2, '0', 1, 'Seobe', 'seobe.PNG', 3, 800, 2400),
 (66, 1, '0', 1, 'Znakovi pored puta', 'znakovi.PNG', 1, 500, 500),
 (67, 4, '0', 1, 'Rat i mir', 'rat.PNG', 1, 1200, 1200),
-(68, 6, '0', 1, 'Hamlet', 'hamlet.PNG', 1, 850, 850);
+(68, 6, '0', 1, 'Hamlet', 'hamlet.PNG', 1, 850, 850),
+(69, 3, '0', 0, 'Zlocin i kazna', 'zlocin.PNG', 1, 1000, 1000),
+(70, 3, '0', 3, 'Zlocin i kazna', 'zlocin.PNG', 4, 1000, 4000),
+(71, 4, '0', 3, 'Rat i mir', 'rat.PNG', 1, 1200, 1200);
 
 -- --------------------------------------------------------
 
@@ -174,7 +178,8 @@ CREATE TABLE `user_info` (
 
 INSERT INTO `user_info` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`) VALUES
 (1, 'Aleksandar', 'Devic', 'vicde@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0644560426', 'Cara Dusana 17'),
-(2, 'Aleksandar', 'Devic', 'email@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '1234567890', '123');
+(2, 'Aleksandar', 'Devic', 'email@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '1234567890', '123'),
+(3, 'Pavle', 'Rakovic', 'pr@gmail.com', 'cb54e9695c675f1f1c87fe4f3ebd0e57', '0696789751', 'Zvezdara');
 
 --
 -- Indexes for dumped tables
@@ -219,26 +224,32 @@ ALTER TABLE `user_info`
 --
 ALTER TABLE `autori`
   MODIFY `autor_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `izdavaci`
 --
 ALTER TABLE `izdavaci`
   MODIFY `izdavac_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `knjige`
 --
 ALTER TABLE `knjige`
   MODIFY `knjiga_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT for table `korpa`
 --
 ALTER TABLE `korpa`
-  MODIFY `id_` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+
 --
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
