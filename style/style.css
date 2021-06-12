@@ -120,7 +120,7 @@ body{background: #fff url(../img/background.jpg);}
  #pronadji{
     font-family: Comic Sans MS;
     font-size: 20px;
-    top: 650px;
+    top: 500px;
     left: 300px;
     position: absolute;
     background: rgba(197, 121, 121, 0.3);
@@ -151,7 +151,7 @@ a:active {
  #pravilo{
  	font-family: Comic Sans MS;
     font-size: 20px;
-    top: 650px;
+    top: 500px;
     left: 1000px;
     position: absolute;
     background: rgba(197,121,121,0.3);
